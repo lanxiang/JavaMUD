@@ -90,10 +90,16 @@ public class Lokatie implements Serializable {
     
     public void addItem(Item item){
         items.add(item);
+        if(!equals(item.getPositie())){
+            item.setPositie(this);
+        }
     }
     
     public void removeItem(Item item){
         items.remove(item);
+        if(equals(item.getPositie())){
+            item.setPositie(null);
+        }
     }
     
     public boolean hasItem(Item item){
@@ -106,10 +112,16 @@ public class Lokatie implements Serializable {
     
     public void addKarakter(Karakter karakter){
         karakters.add(karakter);
+        if(!equals(karakter.getLokatie())){
+            karakter.setLokatie(this);
+        }
     }
     
     public void removeKarakter(Karakter karakter){
         karakters.remove(karakter);
+        if(equals(karakter.getLokatie())){
+            karakter.setLokatie(null);
+        }
     }
     
     public boolean hasKarakter(Karakter karakter){

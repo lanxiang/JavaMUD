@@ -9,13 +9,14 @@ import be.vdab.dao.LokatieDAO;
 import be.vdab.entities.Lokatie;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Tim Van den Langenbergh (tmtvl)
  * @version 1.0: 30-09-2013(tmtvl): Initial version.
  */
-
+@Service
 public class LokatieServiceImpl implements LokatieService {
     private final LokatieDAO lokatieDAO;
     

@@ -13,7 +13,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
         
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:/conf/springControllers.xml</param-value>
+            	<param-value>classpath:/conf/springControllers.xml</param-value>
         </init-param>
         
         <load-on-startup>1</load-on-startup>
@@ -23,4 +23,42 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
         <servlet-name>springDispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+  
+  <listener>
+      <listener-class>
+          org.springframework.web.context.ContextLoaderListener
+      </listener-class>
+  </listener>
+  
+  <context-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>
+          classpath:/conf/springDAO.xml
+          classpath:/conf/springServices.xml
+      </param-value>
+  </context-param>
+    
+    	<!-- needed for ContextLoaderListener -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:/conf/springSecurity.xml
+		</param-value>
+	</context-param>
+	
+		<!-- Bootstraps the root web application context before servlet initialization -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+    
+        	<!-- Spring security -->
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<servlet-name>springDispatcher</servlet-name>
+	</filter-mapping>
 </web-app>

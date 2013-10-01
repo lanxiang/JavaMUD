@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Sep 30, 2013, 12:48:08 PM
+    Document   : lokatie
+    Created on : Sep 30, 2013, 3:29:15 PM
     Author     : Tim.VandenLangenberg
 --%>
 
@@ -12,30 +12,12 @@
 <html lang="nl">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Multi User Dungeon Java</title>
+<title>JavaMUD</title>
 <link rel="stylesheet" href="${contextPath}/styles/default.css" />
 </head>
 <body>
 	<c:import url="/WEB-INF/JSP/menu.jsp" />
-
-	<h1>JAVA!</h1>
-	<c:url var="lokatieURL" value="/lokatie">
-		<c:param name="lokatieId" value="1" />
-	</c:url>
-	<a href="${lokatieURL}">Lokatie</a>
-	<c:url var="gebruikerURL" value="/gebruiker">
-	</c:url>
-	<a href="${gebruikerURL}">Gebruiker Aanmaken</a>
-	<c:url var="aanmeldenURL" value="/aanmeldenURL">
-	</c:url>
-	<a href="${aanmeldenURLURL}">Aanmelden</a>
-
+	<h1>Lokatie ${lokatie.id}</h1>
+	<div id="lokatieBescrijving">${lokatie.beschrijving}</div>
 </body>
 </html>
-
-
-
-
-
-
-
